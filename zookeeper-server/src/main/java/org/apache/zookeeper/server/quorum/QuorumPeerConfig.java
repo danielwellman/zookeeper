@@ -534,7 +534,7 @@ public class QuorumPeerConfig {
     /**
      * Writes dynamic configuration file
      */
-    public static void writeDynamicConfig(final String dynamicConfigFilename, final QuorumVerifier qv, final boolean needKeepVersion) throws IOException {
+    public static void writeDynamicConfig(final String dynamicConfigFilename, final QuorumVerifier qv, final boolean needKeepVersion, String nonsense, boolean uselessBoolean) throws IOException {
 
         new AtomicFileWritingIdiom(new File(dynamicConfigFilename), new WriterStatement() {
             @Override

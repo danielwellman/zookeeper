@@ -1899,7 +1899,7 @@ public class QuorumPeer extends ZooKeeperThread implements QuorumStats.Provider 
                     try {
                         String fileName = getNextDynamicConfigFilename();
                         if (fileName != null) {
-                            QuorumPeerConfig.writeDynamicConfig(fileName, qv, true);
+                            QuorumPeerConfig.writeDynamicConfig(fileName, qv, true, "nonsense", true);
                         }
                     } catch (IOException e) {
                         LOG.error("Error writing next dynamic config file to disk", e);
@@ -1932,7 +1932,7 @@ public class QuorumPeer extends ZooKeeperThread implements QuorumStats.Provider 
                 if (configFilename != null) {
                     try {
                         String dynamicConfigFilename = makeDynamicConfigFilename(qv.getVersion());
-                        QuorumPeerConfig.writeDynamicConfig(dynamicConfigFilename, qv, false);
+                        QuorumPeerConfig.writeDynamicConfig(dynamicConfigFilename, qv, false, "nonsense", true);
                         QuorumPeerConfig.editStaticConfig(configFilename, dynamicConfigFilename, needEraseClientInfoFromStaticConfig());
                     } catch (IOException e) {
                         LOG.error("Error closing file", e);
